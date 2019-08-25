@@ -30,6 +30,18 @@ class AttractionsController < ApplicationController
 
   end
 
+  def update
+
+    @attraction.update(attraction_params)
+
+    if @attraction.save
+      redirect_to attraction_path(@attraction)
+    else
+      render :edit
+    end
+
+  end
+
   private
 
   def find_attraction
